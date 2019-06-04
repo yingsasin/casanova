@@ -1,0 +1,8 @@
+FROM base-tomcat:1.6-7
+MAINTAINER miaoyun.io
+
+COPY easytong_netbank /usr/local/apache-tomcat-7.0.92/webapps/easytong_netbank
+COPY server-8084.xml /usr/local/apache-tomcat-7.0.92/conf/server.xml
+RUN chown -R easytong:easytong /usr/local/apache-tomcat-7.0.92
+EXPOSE 8084
+CMD /usr/local/apache-tomcat-7.0.92/bin/catalina.sh run
